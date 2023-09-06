@@ -24,7 +24,7 @@ run: ## Run program.
         --env-file .env \
         --network=host \
 		$(CONTAINER_NAME) \
-		/bin/bash -c "poetry run python src/main.py"
+		/bin/bash -c "poetry run python /app/src/main.py"
 
 .PHONY: lock-dependencies
 lock-dependencies: ## Lock poetry dependencies.
@@ -58,7 +58,7 @@ test: ## Run service tests.
 		-v $(shell pwd)/tests:/app/tests \
         --env-file .env \
 		$(CONTAINER_NAME) \
-		poetry run pytest /app/tests
+		/bin/bash -c "poetry run pytest /app/tests -vv"
 
 .PHONY: debug
 debug: ## Run service debugging tool.
