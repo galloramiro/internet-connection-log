@@ -2,7 +2,8 @@ import subprocess
 from dataclasses import dataclass
 from typing import Dict
 import json
-from config import LOGGER
+
+from src.config import LOGGER
 
 
 @dataclass

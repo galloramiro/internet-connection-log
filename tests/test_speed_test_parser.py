@@ -5,6 +5,7 @@ def test_speed_test_parser__from_bytes_to_megabytes():
     megabytes = SpeedTestParser._from_bytes_to_megabytes(megabits=2428001)
     assert megabytes == 19.42
 
+
 def test_speed_test_parser_parse_output():
     example_output = {
         "type": "result",
