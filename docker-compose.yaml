@@ -1,0 +1,14 @@
+version: '3'
+services:
+  internet-connection-log:
+    build: .
+    image: internet-connection-log:latest
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    network_mode: "host"
+    volumes:
+      - ./src:/app/src
+      - ./files:/app/files
+      - ./tests:/app/tests
+    env_file:
+      - .env

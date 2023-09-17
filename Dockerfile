@@ -1,6 +1,8 @@
 FROM python:3.11.5-slim-bullseye
 
 WORKDIR /app
+ENV PYTHONPATH=${PYTHONPATH}:${PWD}
+RUN mkdir -p /app/files
 
 # Setup timezone
 RUN apt-get update && apt-get install -y tzdata
