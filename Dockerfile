@@ -4,6 +4,9 @@ WORKDIR /app
 ENV PYTHONPATH=${PYTHONPATH}:${PWD}
 RUN mkdir -p /app/files
 
+# Install build dependencies
+RUN apt-get update && apt-get install -y gcc python3-dev
+
 # Setup timezone
 RUN apt-get update && apt-get install -y tzdata
 ENV TZ=America/Argentina/Cordoba
