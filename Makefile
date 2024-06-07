@@ -40,3 +40,7 @@ debug: ## Run service debugging tool.
 .PHONY: black
 black: ## Run code style tool.
 	docker compose run --rm $(CONTAINER_NAME) /bin/bash -c "poetry run python -m black ."
+
+.PHONY: get-servers
+get-servers: ## Run code style tool.
+	docker compose run --rm $(CONTAINER_NAME) /bin/bash -c "speedtest --servers"

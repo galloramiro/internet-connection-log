@@ -6,7 +6,7 @@ authors = ["Ramiro Gallo <ramiro.r.gallo@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11.5"
+python = "^3.9"
 
 [tool.poetry.dev-dependencies]
 isort = "^5.12.0"
