@@ -35,17 +35,29 @@ Remember that this is a project ment to be run in a raspberry pi, thats why I us
 ## Code base
 ```mermaid
 classDiagram
-    main <|-- SpeedTestGateway
-    main <|-- SpeedTestParser
-    main <|-- SpeedTestJsonRepository
-    main: +run_speed_test()
+    InternetConnectionLogService <|-- SpeedTestGateway
+    InternetConnectionLogService <|-- SpeedTestParser
+    InternetConnectionLogService <|-- SpeedTestJsonRepository
+
+    class InternetConnectionLogService{
+        parser: SpeedTestParser 
+        gateway: SpeedTestGateway
+        repository: SpeedTestJsonRepository
+        log_internet_connection_for_single_server(server)
+        log_internet_connection_for_multiple_servers(servers)
+    }
     class SpeedTestGateway{
-      +get_speed_test_result()
+      get_speed_test_result()
+      parse_json()
     }
     class SpeedTestParser{
-      +parse_output()
+      parse_output()
+      _from_bytes_to_megabytes()
+      _get_current_time()
     }
     class SpeedTestJsonRepository{
-      +save_speed_test_output()
+      save_speed_test_output()
+      _get_current_file()
+      _save_dict_to_current_file()
     }
 ```

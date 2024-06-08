@@ -44,3 +44,8 @@ black: ## Run code style tool.
 .PHONY: get-servers
 get-servers: ## Run code style tool.
 	docker compose run --rm $(CONTAINER_NAME) /bin/bash -c "speedtest --servers"
+
+.PHONY: get poetry virtualenv
+get-virtual-env:
+	docker-compose run --rm $(CONTAINER_NAME) /bin/bash -c "poetry env info -p"
+
